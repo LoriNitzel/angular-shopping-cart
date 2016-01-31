@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="shopItBaby">
+<head>
+  <title></title>
+</head>
+<body ng-controller="cartycartController as CC">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class ="topbar"><em>Guaranteed Disgusting!</em></h4>
+      <h1><em>Welcome to Nasty Tea!</em></h1>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">NASTY TEA STORE</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <p>Search by Category:
+      <select name="search">
+        <option value="value1">Gross</option> 
+        <option value="value2" selected>Really Gross</option>
+        <option value="value3">Just Plain Nasty</option>
+      </select>
+    
+      Search by Name: <input type="text" name ="search" /> 
+      
+      <button class="btn btn-default">Checkout  | Bag:{{}}</button>
+    </p>
+  </div>
+</div>
+<div class="row">
+   <div class="col-md-10 col-md-offset-1">
+    <table>
+      <th>Tea</th>
+      <th>Information
+        Sort by Price 
+        <select name="price">
+          <option value="value1">$1.00</option> 
+          <option value="value2" selected>$2.00</option>
+          <option value="value3">$3.00</option>
+        </select>
+      </th>
+      <tr ng-repeat="tea in CC.teas">
+        <td><img src="{{tea.imageUrl}}"></td>
+        <td>
+          <h3>{{tea.name}}
+            Quantity: 
+              <select name="price" ng-model="CC.quant">
+                <option value="quant1">1</option> 
+                <option value="quant2" selected>2</option>
+                <option value="quant3">3</option>
+                <option value="quant4">4</option> 
+                <option value="quant5">5</option>
+                <option value="quant6">6</option>
+                <option value="quant7">7</option> 
+                <option value="quant8">8</option>
+                <option value="quant9">9</option>
+             </select>
+            <button class="btn btn-default" ng-click="CC.addBag(tea.name,tea.price,CC.quant)">Add to Bag</button>
+          </h3>
+          <p><strong>Price: </strong>{{tea.price | currency:"$":2}}</p>
+          <p><strong>Caffeine Scale: </strong>{{tea.caffeineScale}}</p>
+          <p><strong>Ingredients: </strong>{{tea.ingredients}}</p>
+          <p><strong>Rating: </strong>{{tea.rating}}</p>
+          <p><strong>In Stock?</strong> {{tea.inStock}}</p>
+          <p><strong>Categories: </strong></p>
+            <ul>
+              <li>{{tea.categories[0]}}</li>
+              <li>{{tea.categories[1]}}</li>
+              <li>{{tea.categories[2]}}</li>
+            </ul> 
+        </td><!-- {{CC.teas[0].name}} -->
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+
+
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src='./js/app.js'></script>
+<script src='./js/controllers.js'></script>
+<!-- <script src='./js/directives.js'></script> -->
+<script src='./js/services.js'></script>
+<!-- <script src='./js/routes.js'></script> -->
+<link rel="stylesheet" type="text/css" href="./css/main.css" media="screen" />
+</body>
+</html>

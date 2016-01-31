@@ -1,0 +1,29 @@
+.topbar {
+  background-color: olive;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: olive;
+}
+
+table {
+  border: solid 1px grey;
+}
+
+tr {
+  border: solid 1px grey;
+
+}
+
+td {
+  border: solid 1px grey;
+  padding-left: 10px;
+}
+
+th {
+  text-align: center;
+  border: solid 1px grey;
+}
